@@ -51,8 +51,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_dano_jogador_body_entered(body: Node2D) -> void:
-	if body_is_in_group(\"inimigos\")
-		queue_free()
+	if body.is_in_group(\"inimigos\"):
+		get_tree().reload_current_scene();
+
+			
 "
 
 [sub_resource type="Animation" id="Animation_ww7fc"]
