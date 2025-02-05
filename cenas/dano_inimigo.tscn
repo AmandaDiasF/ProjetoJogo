@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj4br5c48p2vy"]
+
+[ext_resource type="Script" path="res://Scripts/dano_inimigo.gd" id="1_xs2fk"]
+
+[node name="dano_inimigo" type="Area2D"]
+script = ExtResource("1_xs2fk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

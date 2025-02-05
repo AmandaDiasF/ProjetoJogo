@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://dqh2bjws110n1"]
+
+[ext_resource type="Texture2D" uid="uid://c5eivif72kjrw" path="res://Pixel Adventure 1/Dimensional_Portal.png" id="1_62fvh"]
+[ext_resource type="Script" path="res://Scripts/portal.gd" id="1_iycnm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlots"]
+atlas = ExtResource("1_62fvh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i2jh"]
+atlas = ExtResource("1_62fvh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u0j4"]
+atlas = ExtResource("1_62fvh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pov78"]
+atlas = ExtResource("1_62fvh")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1aybp"]
+atlas = ExtResource("1_62fvh")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e1db"]
+atlas = ExtResource("1_62fvh")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h3ugj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlots")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2i2jh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6u0j4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pov78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1aybp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e1db")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oy4py"]
+radius = 4.0
+
+[node name="portal" type="Area2D"]
+collision_layer = 9
+script = ExtResource("1_iycnm")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h3ugj")
+autoplay = "default"
+frame_progress = 0.847332
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_oy4py")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

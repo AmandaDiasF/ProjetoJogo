@@ -1,0 +1,186 @@
+[gd_scene load_steps=21 format=3 uid="uid://gmvp2cqhnnmi"]
+
+[ext_resource type="Texture2D" uid="uid://bpx54n8vkr5qk" path="res://Pixel Adventure 1/Free/Items/Fruits/Cherries.png" id="1_88jtw"]
+
+[sub_resource type="GDScript" id="GDScript_pyums"]
+script/source = "extends Control
+
+@onready var contador_moedas = $container/cereja_container/contadormoeda as Label
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	contador_moedas.text =str(\"%04d\" % Globals.moedas)
+	
+
+func _process(delta: float) -> void:
+	contador_moedas.text =str(\"%04d\" % Globals.moedas)
+	
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu6im"]
+atlas = ExtResource("1_88jtw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqddu"]
+atlas = ExtResource("1_88jtw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf5uq"]
+atlas = ExtResource("1_88jtw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6a48"]
+atlas = ExtResource("1_88jtw")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usr6o"]
+atlas = ExtResource("1_88jtw")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sadus"]
+atlas = ExtResource("1_88jtw")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dy0en"]
+atlas = ExtResource("1_88jtw")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7igw8"]
+atlas = ExtResource("1_88jtw")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bb6ae"]
+atlas = ExtResource("1_88jtw")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8fm6"]
+atlas = ExtResource("1_88jtw")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cp7s"]
+atlas = ExtResource("1_88jtw")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftml1"]
+atlas = ExtResource("1_88jtw")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrx6m"]
+atlas = ExtResource("1_88jtw")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgskx"]
+atlas = ExtResource("1_88jtw")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivxb3"]
+atlas = ExtResource("1_88jtw")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fges"]
+atlas = ExtResource("1_88jtw")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5smf"]
+atlas = ExtResource("1_88jtw")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4h7ky"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu6im")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqddu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lf5uq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6a48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usr6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sadus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dy0en")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7igw8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bb6ae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8fm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cp7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftml1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrx6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgskx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivxb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fges")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5smf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 13.0
+}]
+
+[node name="hud" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_pyums")
+
+[node name="container" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="cereja_container" type="HBoxContainer" parent="Control/container"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="anim" type="AnimatedSprite2D" parent="Control/container/cereja_container"]
+texture_filter = 1
+position = Vector2(-10, 12)
+sprite_frames = SubResource("SpriteFrames_4h7ky")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.332075
+
+[node name="contadormoeda" type="Label" parent="Control/container/cereja_container"]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 14
+text = "0000"

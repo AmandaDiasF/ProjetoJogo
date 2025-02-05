@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck5wnd8eg1y1l"]
+
+[ext_resource type="Script" path="res://Scripts/espinhos_dano.gd" id="1_4ye34"]
+[ext_resource type="Texture2D" uid="uid://8mvs0cjj06ee" path="res://Pixel Adventure 1/Spike (1).png" id="1_07q03"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6gieu"]
+size = Vector2(52.75, 7.5)
+
+[node name="espinhos" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_4ye34")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(4, 0)
+scale = Vector2(1.36364, 1)
+texture = ExtResource("1_07q03")
+region_enabled = true
+region_rect = Rect2(0, 8, 40, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.375, 0.75)
+shape = SubResource("RectangleShape2D_6gieu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

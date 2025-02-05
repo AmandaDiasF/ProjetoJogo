@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://djheyqmbt83lu"]
+[gd_scene load_steps=18 format=3 uid="uid://djheyqmbt83lu"]
 
 [ext_resource type="Texture2D" uid="uid://4tq2yo22y5uy" path="res://Personagens/Nutty/Nutty/WalkRun.png" id="1_aku55"]
 [ext_resource type="Texture2D" uid="uid://d6xe4igcfaff" path="res://Personagens/Nutty/Nutty/Death.png" id="2_vgjdv"]
@@ -44,8 +44,15 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			anime.play(\"parado\")  # Se não estiver se movendo e estiver no chão, animação de parado
 
+
+
 	# Aplica o movimento
 	move_and_slide()
+
+
+func _on_dano_jogador_body_entered(body: Node2D) -> void:
+	if body_is_in_group(\"inimigos\")
+		queue_free()
 "
 
 [sub_resource type="Animation" id="Animation_ww7fc"]
@@ -353,6 +360,9 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4rey"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0fnc"]
+size = Vector2(26, 10)
+
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
 position = Vector2(11, -9)
@@ -387,3 +397,12 @@ drag_right_margin = 0.4
 drag_bottom_margin = 0.3
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="dano_jogador" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="colisao_dano" type="CollisionShape2D" parent="dano_jogador"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_y0fnc")
+
+[connection signal="body_entered" from="dano_jogador" to="." method="_on_dano_jogador_body_entered"]
