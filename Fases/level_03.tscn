@@ -299,7 +299,7 @@ shader_parameter/Speed = 0.02
 [node name="level_03" type="Node2D"]
 
 [node name="fim" parent="." instance=ExtResource("1_7ij5w")]
-position = Vector2(1327, 0)
+position = Vector2(53, -26)
 
 [node name="TileMap" type="TileMap" parent="."]
 light_mask = 0
